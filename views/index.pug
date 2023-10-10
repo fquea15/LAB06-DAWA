@@ -1,0 +1,135 @@
+doctype html
+html.no-js(lang="es")
+
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        meta(name="description" content="Portafolio online de un desarrollador web. Desarrollador front-end Ariel Plasencia Díaz, creador de sitios webs atractivos, dinámicos e intuitivos.")
+        meta(name="keywords" content="desarrollador web, diseñador, desarrollador front-end")
+        meta(name="author" content="Ariel Plasencia Díaz")
+        title Portafolio
+        link(rel="shortcut icon" href="/img/icons/app-red-small.ico")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css")
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css")
+        link(href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600&display=swap" rel="stylesheet")
+        link(rel="stylesheet" href="/css/lightbox.min.css")
+        link(rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css")
+        link(rel="stylesheet" href="/css/style.css")
+        link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+        script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+
+
+
+    body
+        nav.menu
+            div.foto
+                p
+                    img(src="img/foto.jpg" alt="Ariel Plasencia Díaz" class="foto")
+            div.contenedor.contenedor-menu
+                a(href="#home") Inicio
+                a(href="#sobre-mi") Sobre mí
+                a(href="#conocimientos") Habilidades
+                a(href="#contacto") Contacto
+        header.header#home
+            div.contenedor.contenedor-header
+                div.nombre
+                    span.fade-in #{home.nombre}
+                h2.profesion #{home.profesion}
+
+        main.main
+            section.sobre-mi
+                div.contenedor.contenedor-sobre-mi
+                    h2.titulo#sobre-mi Sobre mí
+                    div.texto
+                        p.descripcion
+                            | $
+                            span#tagline
+                                | Bienvenido: 
+                                br
+                                br
+                                | Soy desarrollador web Full-stack. Me gusta mucho el desafío de crear aplicaciones web completas, desde el diseño hasta la funcionalidad. Disfruto encontrar soluciones creativas a problemas complejos y ver cómo cobran vida en el navegador. 
+                                ins 1.5 
+                                | Un momento, ¿sabes qué es eso, no? 'Desarrollador web Full-stack'. A ver, te 
+                                | explico: 
+                                br
+                                br
+                                | Un desarrollador web Full-stack se encarga de tanto el lado del cliente como del servidor en un sitio web. Desde el diseño, los estilos hasta la lógica de programación y la gestión de bases de datos. Básicamente, abarca todas las áreas del desarrollo web.
+                                br
+                                br
+                                | ¿Suena bien, no? 
+                                br
+                                br
+                                | Me gusta jugar videojuegos, ver películas, salir a caminar y disfrutar del tiempo libre.
+                            del
+                            del#pow-trigger
+
+
+            div.conocimientos
+                h2.titulo#conocimientos Habilidades tecnológicas
+                div.contenedor
+                    div.contenedor-conocimientos
+                        each skill in skills
+                            div.tarjeta
+                                input(type="checkbox" name="")
+                                div.cambio.red +
+                                div.img
+                                    img(src=`img/habilidades/${skill.name.toLowerCase().replace(/\s/g, '_')}.jpg`, alt="")
+                                div.detalles
+                                    h3= skill.name
+                                    p
+                                        | #{skill.description}
+            div.form-container
+                h1 Contáctanos
+                br
+                form(action='/contacto' method='post')
+                    div.form-group
+                        label(for='nombre') Nombre:
+                        input(type='text' id='nombre' name='nombre')
+                    div.form-group
+                        label(for='email') Email:
+                        input(type='email' id='email' name='email')
+                    div.form-group
+                        label(for='mensaje') Mensaje:
+                        textarea(id='mensaje' name='mensaje')
+                    div.form-group
+                        input(type='submit' value='Enviar')
+
+            #modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                .modal-dialog(role='document')
+                    .modal-content
+                    .modal-header
+                        h5#exampleModalLabel.modal-title Contacto
+                        button(type='button', class='close', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') ×
+                    .modal-body
+                        p#nombre-modal
+                        p#email-modal
+                        p#mensaje-modal
+                    .modal-footer
+                        button(type='button', class='btn btn-secondary', data-dismiss='modal') Cerrar
+
+
+
+
+
+        footer.footer
+            div.contenedor
+                div.redes-sociales#contacto
+                    a(href="https://www.linkedin.com/in/fquea-jc" target="_blank" class="social linkedin" title="Linkedin")
+                        i.fab.fa-linkedin-in
+                    a(href="https://github.com/fquea15" target="_blank" class="social github" title="GitHub")
+                        i.fab.fa-github
+            p.autor Freddy Quea - 2023
+            span
+                i.boton-arriba.fa.fa-chevron-up#boton-arriba(aria-hidden="true")
+
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+    script(src="https://unpkg.com/aos@next/dist/aos.js")
+    script(src="/js/main.js")
+    script(src="js/lightbox-plus-jquery.min.js")
+    script(src="js/t.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js")
